@@ -14,6 +14,9 @@ angular.module("codefabriek.promise", [])
          * @private
          */
         var _me = function (request) {
+            if(!angular.isDefined(request))
+                throw new Error("This method requires an valid request object.");
+
             var deferred = $q.defer();
 
             $http(request)
