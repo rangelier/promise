@@ -1,5 +1,5 @@
 # Promise module
-Promise is an AngularJS module. This module provides a simple factory that acts as an wrapper around the $http service that returns a promise. It has two methods 'me' and 'us' which can be used to perform a single or multiple ajax request(s).
+Promise is an AngularJS module. This module provides a simple factory that acts as an wrapper around the $http service that returns a promise. It has two methods 'me' and 'us' which can be used to perform single or multiple ajax request(s).
 The multiple requests will be completed or failed at once.
 
 # Example markup
