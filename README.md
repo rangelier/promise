@@ -1,9 +1,8 @@
-# promise
-Promise is a simple wrapper around the $http service that uses the promise interface.
-It has two methods 'me' and 'us' which can be used to perform a single request or multiple.
+# Promise module
+Promise is an AngularJS module. This module provides a simple factory that acts as an wrapper around the $http service that returns a promise. It has two methods 'me' and 'us' which can be used to perform a single or multiple ajax request(s).
 The multiple requests will be completed or failed at once.
 
-# example markup
+# Example markup
       <!DOCTYPE html>
       <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
       <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -30,7 +29,7 @@ The multiple requests will be completed or failed at once.
       </html>
 
 
-# example app
+# Example app
       angular.module('myApp', ['codefabriek.promise'])
       .controller("rootCtrl", ["Promise", function (Promise) {
 
