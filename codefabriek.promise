@@ -1,0 +1,50 @@
+/**
+ * Created by Code Fabriek
+ */
+
+"use_strict";
+
+angular.module("codefabriek.promise", [])
+    .factory("Promise", ["$q", "$http", function ($q, $http) {
+        var promiseFactory = {};
+
+        /**
+         * Used to perform a single AJAX request.
+         * @param request
+         * @private
+         */
+        var _me = function (request) {
+            return _us([request]);
+        };
+        /**
+         * Used to perform multiple AJAX requests that will completed at once.
+         * @param requests
+         * @private
+         */
+        var _us = function (requests) {
+            if (!angular.isArray(requests))
+                throw new Error("This method requires an array of request objects.");
+
+            var promises = [];
+            var deferred = $q.defer();
+
+            requests.forEach(function (request) {
+                var promise = $http(request);
+                promises.push(promise);
+            });
+
+            $q.all(promises)
+                .then(function (response) {
+                    deferred.resolve(response);
+                }, function (reason) {
+                    deferred.reject(reason);
+                });
+
+            return deferred.promise;
+        };
+
+        promiseFactory.me = _me;
+        promiseFactory.us = _us;
+
+        return promiseFactory;
+    }]);
