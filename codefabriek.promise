@@ -14,7 +14,17 @@ angular.module("codefabriek.promise", [])
          * @private
          */
         var _me = function (request) {
-            return _us([request]);
+            var deferred = $q.defer();
+
+            $http(request)
+                .success(function(response){
+                    deferred.resolve(response);
+                })
+                .error(function(reason){
+                    deferred.reject(reason);
+                });
+
+            return deferred.promise;
         };
         /**
          * Used to perform multiple AJAX requests that will completed at once.
