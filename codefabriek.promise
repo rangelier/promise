@@ -30,7 +30,7 @@ angular.module("codefabriek.promise", [])
             return deferred.promise;
         };
         /**
-         * Used to perform multiple AJAX requests that will completed at once.
+         * Used to perform multiple AJAX requests that will complete/fail at once.
          * @param requests
          * @private
          */
